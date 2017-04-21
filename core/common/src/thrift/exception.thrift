@@ -1,6 +1,9 @@
 namespace java alluxio.thrift
 
-enum TExceptionStatus {
+enum TStatus {
+  // OK is returned on success.
+  OK = 0,
+
   // Canceled indicates the operation was cancelled (typically by the caller).
   CANCELED = 1,
 
@@ -115,7 +118,8 @@ enum TExceptionStatus {
   DATA_LOSS = 15,
 }
 
+// Next available id: 5
 exception AlluxioTException {
   2: string message
-  4: TExceptionStatus status
+  4: TStatus status
 }
