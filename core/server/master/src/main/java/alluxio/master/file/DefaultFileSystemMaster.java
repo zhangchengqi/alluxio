@@ -2636,6 +2636,7 @@ public final class DefaultFileSystemMaster extends AbstractMaster implements Fil
 
   @Override
   public void scheduleAsyncPersistence(AlluxioURI path) throws AlluxioException {
+    LOG.info("Async persistence requested: {}", path);
     try (JournalContext journalContext = createJournalContext();
         LockedInodePath inodePath = mInodeTree.lockFullInodePath(path, InodeTree.LockMode.WRITE)) {
       scheduleAsyncPersistenceAndJournal(inodePath, journalContext);
@@ -2678,6 +2679,7 @@ public final class DefaultFileSystemMaster extends AbstractMaster implements Fil
       try {
         // Permission checking for each file is performed inside setAttribute
         setAttribute(getPath(fileId), SetAttributeOptions.defaults().setPersisted(true));
+        LOG.info("Async persistence finalized: {}", getPath(fileId));
       } catch (FileDoesNotExistException | AccessControlException | InvalidPathException e) {
         LOG.error("Failed to set file {} as persisted, because {}", fileId, e);
       }

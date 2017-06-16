@@ -285,6 +285,7 @@ public final class FileDataManager {
       mPersistingInProgressFiles.remove(fileId);
       mPersistedFiles.add(fileId);
     }
+    LOG.info("Async persistence completed: {}", fileInfo.getPath());
   }
 
   /**

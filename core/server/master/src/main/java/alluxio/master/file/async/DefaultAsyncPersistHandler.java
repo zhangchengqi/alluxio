@@ -171,6 +171,7 @@ public final class DefaultAsyncPersistHandler implements AsyncPersistHandler {
 
         filesToPersist.add(new PersistFile(fileId, blockIds));
       }
+      LOG.info("Async persistence scheduled: {}", mFileSystemMasterView.getPath(fileId));
     }
     mWorkerToAsyncPersistFiles.get(workerId).removeAll(fileIdsToPersist);
     return filesToPersist;
