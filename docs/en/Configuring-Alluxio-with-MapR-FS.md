@@ -66,8 +66,8 @@ can be set in the property file `alluxio-site.properties`. For more information,
 This parameter should also be set any client that accesses Alluxio. This means the parameter should
 be set for any application (MapReduce, Spark, Flink, etc.) that accesses Alluxio. This can typically
 be done by adding `-Dalluxio.underfs.hdfs.prefixes=hdfs://,maprfs:///` to the command. For more
-information, please read about [configurating applications for Alluxio](Configuration-Settings.html
-#application-settings).
+information, please read about
+[configurating applications for Alluxio](Configuration-Settings.html#application-settings).
 
 ## Configuring Alluxio to use MapR-FS as Under File System
 
